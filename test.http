@@ -5,17 +5,13 @@ x-functions-key: {{UpdateReleaseNotesKey}}
 
 {
     "AccountName": "lbugnion",
-    "RepoName": "tests-auto-commit",
-    "BranchName": "master",
+    "RepoName": "releasenotesmaker",
+    "BranchName": "main",
     "CommitMessage": "New release notes for V1",
     "Projects": [
         {
-            "Project": "Test project API",
+            "Project": "API",
             "ProjectId": 1
-        },
-        {
-            "Project": "Client project",
-            "ProjectId": 2
         }
     ]
 }
