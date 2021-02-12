@@ -15,6 +15,8 @@ namespace ReleaseNotesMaker
 {
     public static class ReleaseNotesMaker
     {
+        private const string PageUrlMask = "https://github.com/{0}/{1}/blob/{2}/{3}.md";
+
         [FunctionName(nameof(UpdateReleaseNotes))]
         public static async Task<IActionResult> UpdateReleaseNotes(
             [HttpTrigger(
@@ -64,6 +66,7 @@ namespace ReleaseNotesMaker
             }
 
             var filesToSave = new List<GitHubTextFile>();
+            var functionResult = new List<string>();
 
             foreach (var page in releaseNotesResult.CreatedPages)
             {
@@ -82,6 +85,13 @@ namespace ReleaseNotesMaker
                         Content = page.Markdown,
                         Path = page.FilePath
                     });
+
+                    functionResult.Add(string.Format(
+                        PageUrlMask,
+                        info.AccountName,
+                        info.RepoName,
+                        info.BranchName,
+                        page.FilePath));
                 }
             }
 
@@ -89,34 +99,52 @@ namespace ReleaseNotesMaker
                 .Select(f => (f.Path, f.Content))
                 .ToList();
 
-            var result = await helper.CommitFiles(
-                info.AccountName,
-                info.RepoName,
-                info.BranchName,
-                token,
-                info.CommitMessage,
-                commitContent);
-
-            if (!string.IsNullOrEmpty(result.ErrorMessage))
+            if (commitContent.Count > 0)
             {
-                log.LogError($"Cannot save file: {result.ErrorMessage}");
+                var result = await helper.CommitFiles(
+                    info.AccountName,
+                    info.RepoName,
+                    info.BranchName,
+                    token,
+                    info.CommitMessage,
+                    commitContent);
+
+                if (!string.IsNullOrEmpty(result.ErrorMessage))
+                {
+                    log.LogError($"Cannot save file: {result.ErrorMessage}");
+
+                    await NotificationService.Notify(
+                        "Release notes NOT saved to GitHub",
+                        $"There was an error: {result.ErrorMessage}",
+                        log);
+
+                    log.LogInformation("UpdateReleaseNotes ->");
+                    return new UnprocessableEntityObjectResult($"There was an issue: {result.ErrorMessage}");
+                }
+            }
+
+            if (functionResult.Count == 0)
+            {
+                var emptyMessage = $"The release notes were NOT saved to {info.AccountName}/{info.RepoName} (no changes found)";
 
                 await NotificationService.Notify(
-                    "Release notes NOT saved to GitHub",
-                    $"There was an error: {result.ErrorMessage}",
+                    "Release notes unchanged",
+                    emptyMessage,                    
                     log);
 
                 log.LogInformation("UpdateReleaseNotes ->");
-                return new UnprocessableEntityObjectResult($"There was an issue: {result.ErrorMessage}");
+                return new OkObjectResult(emptyMessage);
             }
 
+            var message = $"The release notes were saved to {info.AccountName}/{info.RepoName}";
+
             await NotificationService.Notify(
-                "Release notes saved to GitHub",
-                $"The release notes were saved to {info.AccountName}/{info.RepoName}",
+                "Release notes unchanged",
+                message,
                 log);
 
             log.LogInformation("UpdateReleaseNotes ->");
-            return new OkObjectResult(result);
+            return new OkObjectResult(message);
         }
     }
 }
