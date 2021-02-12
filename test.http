@@ -1,2 +1,20 @@
 ### Create release notes
-POST 
+POST http://localhost:7071/api/release-notes/milestones/V1
+x-releasenotesmaker-token: {{githubtoken}}
+
+{
+    "AccountName": "lbugnion",
+    "RepoName": "tests-auto-commit",
+    "BranchName": "master",
+    "CommitMessage": "New release notes for V1",
+    "Projects": [
+        {
+            "Project": "Test project API",
+            "ProjectId": 1
+        },
+        {
+            "Project": "Client project",
+            "ProjectId": 2
+        }
+    ]
+}
