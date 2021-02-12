@@ -1,6 +1,7 @@
 ### Create release notes
-POST http://localhost:7071/api/release-notes/milestones/V1
+POST {{function-url}}/release-notes/milestones/V1
 x-releasenotesmaker-token: {{githubtoken}}
+x-functions-key: {{UpdateReleaseNotesKey}}
 
 {
     "AccountName": "lbugnion",
