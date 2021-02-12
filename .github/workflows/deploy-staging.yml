@@ -1,10 +1,16 @@
 name: Deploy function to Staging
 
+# Controls when the action will run. 
 on:
+  # Triggers the workflow on push or pull request events but only for the main branch
   push:
     branches: [ Staging ]
+    paths:
+    - 'src/ReleaseNotesMaker/**'
   pull_request:
     branches: [ Staging ]
+    paths:
+    - 'src/ReleaseNotesMaker/**'
 
   workflow_dispatch:
 
@@ -37,4 +43,4 @@ jobs:
       with:
         app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
         package: '${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}/output'
-        publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }}
+        publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE_STAGING }}
