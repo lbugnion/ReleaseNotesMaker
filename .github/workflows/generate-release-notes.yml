@@ -1,0 +1,15 @@
+name: Generate release notes
+
+on:
+  workflow_dispatch:
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: CamiloGarciaLaRotta/watermelon-http-client@v1.4
+        with:
+          url: https://release-notes-maker.azurewebsites.net/api/release-notes/milestones/all
+          method: post
+          headers: '{ "x-functions-key": "${{ secrets.UpdateReleaseNotesKey }}", "x-releasenotesmaker-token": "${{ secrets.GitHubToken }}" }'
+          data:  '{"AccountName":"lbugnion","RepoName":"ReleaseNotesMaker","BranchName":"main","CommitMessage":"New release notes","SinglePage":false,"Projects":[{"Project":"Infrastructure","ProjectId":2},{"Project":"API","ProjectId":1},{"Project":"ReleaseNotesMaker","IsMainPage":true}]}'
