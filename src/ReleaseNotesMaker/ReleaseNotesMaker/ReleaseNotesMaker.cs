@@ -10,6 +10,7 @@ using System.IO;
 using Newtonsoft.Json;
 using System.Linq;
 using System.Collections.Generic;
+using System;
 
 namespace ReleaseNotesMaker
 {
@@ -37,8 +38,19 @@ namespace ReleaseNotesMaker
             var token = req.Headers[Constants.GitHubTokenHaderKey];
             log?.LogDebug($"token {token}");
 
-            string json = await new StreamReader(req.Body).ReadToEndAsync();
-            var info = JsonConvert.DeserializeObject<GitHubInfo>(json);
+            string json = string.Empty;
+            GitHubInfo info;
+
+            try
+            {
+                json = await new StreamReader(req.Body).ReadToEndAsync();
+                info = JsonConvert.DeserializeObject<GitHubInfo>(json);
+            }
+            catch (Exception ex)
+            {
+                log.LogError(ex, $"Error deserializing the JSON: {json}");
+                return new BadRequestObjectResult("Invalid request");
+            }
 
             log?.LogDebug($"AccountName {info.AccountName}");
             log?.LogDebug($"RepoName {info.RepoName}");
@@ -56,13 +68,14 @@ namespace ReleaseNotesMaker
             var releaseNotesResult = await helper.CreateReleaseNotesMarkdown(
                 info.AccountName,
                 info.RepoName,
+                info.BranchName,
                 info.Projects,
                 forMilestones,
                 token);
 
             if (!string.IsNullOrEmpty(releaseNotesResult.ErrorMessage))
             {
-                return new BadRequestObjectResult(releaseNotesResult.ErrorMessage);
+                return new UnprocessableEntityObjectResult(releaseNotesResult.ErrorMessage);
             }
 
             var filesToSave = new List<GitHubTextFile>();
@@ -139,7 +152,7 @@ namespace ReleaseNotesMaker
             var message = $"The release notes were saved to {info.AccountName}/{info.RepoName}";
 
             await NotificationService.Notify(
-                "Release notes unchanged",
+                "Release notes saved",
                 message,
                 log);
 

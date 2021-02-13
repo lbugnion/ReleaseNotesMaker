@@ -1,17 +1,34 @@
-### Create release notes
-POST {{function-url}}/release-notes/milestones/V1
+### Create release notes (tests auto commit)
+POST {{function-url}}/release-notes/milestones/all
 x-releasenotesmaker-token: {{githubtoken}}
 x-functions-key: {{UpdateReleaseNotesKey}}
 
 {
     "AccountName": "lbugnion",
-    "RepoName": "releasenotesmaker",
-    "BranchName": "main",
+    "RepoName": "tests-auto-commit",
+    "BranchName": "master",
     "CommitMessage": "New release notes for V1",
     "Projects": [
         {
-            "Project": "API",
+            "Project": "Client project",
+            "ProjectId": 2,
+            "Header": [
+                "This is header line 1",
+                "And this is line 2",
+                "And this [is a link](http://rts.ch)"
+            ]
+        },
+        {
+            "Project": "Test project API",
             "ProjectId": 1
+        },
+        {
+            "Project": "Tests Auto Commit",
+            "IsMainPage": true,
+            "Header": [
+                "This is header line 1 for the main page",
+                "Here [is a link](http://galasoft.ch)"
+            ]
         }
     ]
 }
