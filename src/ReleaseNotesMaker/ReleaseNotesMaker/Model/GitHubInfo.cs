@@ -34,5 +34,11 @@ namespace ReleaseNotesMaker.Model
             get;
             set;
         }
+
+        public bool SinglePage 
+        { 
+            get; 
+            set; 
+        }
     }
 }

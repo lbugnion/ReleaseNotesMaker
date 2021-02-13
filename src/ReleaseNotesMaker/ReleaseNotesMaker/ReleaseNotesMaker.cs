@@ -71,6 +71,7 @@ namespace ReleaseNotesMaker
                 info.BranchName,
                 info.Projects,
                 forMilestones,
+                info.SinglePage,
                 token);
 
             if (!string.IsNullOrEmpty(releaseNotesResult.ErrorMessage))

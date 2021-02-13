@@ -8,6 +8,7 @@ x-functions-key: {{UpdateReleaseNotesKey}}
     "RepoName": "tests-auto-commit",
     "BranchName": "master",
     "CommitMessage": "New release notes for V1",
+    "SinglePage": false,
     "Projects": [
         {
             "Project": "Client project",
