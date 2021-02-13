@@ -33,3 +33,30 @@ x-functions-key: {{UpdateReleaseNotesKey}}
         }
     ]
 }
+
+### Create release notes (releasenotesmaker)
+POST {{function-url}}/release-notes/milestones/all
+x-releasenotesmaker-token: {{githubtoken}}
+x-functions-key: {{UpdateReleaseNotesKey}}
+
+{
+    "AccountName": "lbugnion",
+    "RepoName": "ReleaseNotesMaker",
+    "BranchName": "main",
+    "CommitMessage": "New release notes",
+    "SinglePage": false,
+    "Projects": [
+        {
+            "Project": "Infrastructure",
+            "ProjectId": 2
+        },
+        {
+            "Project": "API",
+            "ProjectId": 1
+        },
+        {
+            "Project": "ReleaseNotesMaker",
+            "IsMainPage": true
+        }
+    ]
+}
