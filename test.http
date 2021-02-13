@@ -1,6 +1,6 @@
 ### Create release notes (tests auto commit)
 POST {{function-url}}/release-notes/milestones/all
-x-releasenotesmaker-token: {{githubtoken}}
+x-releasenotesmaker-token: {{release-notes-makes-githubtoken}}
 x-functions-key: {{UpdateReleaseNotesKey}}
 
 {
@@ -36,7 +36,7 @@ x-functions-key: {{UpdateReleaseNotesKey}}
 
 ### Create release notes (releasenotesmaker)
 POST {{function-url}}/release-notes/milestones/all
-x-releasenotesmaker-token: {{githubtoken}}
+x-releasenotesmaker-token: {{release-notes-makes-githubtoken}}
 x-functions-key: {{UpdateReleaseNotesKey}}
 
 {
