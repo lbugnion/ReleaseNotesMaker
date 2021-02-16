@@ -22,7 +22,7 @@ x-functions-key: {{UpdateReleaseNotesKey}}
     "RepoName": "ReleaseNotesMaker",
     "BranchName": "main",
     "CommitMessage": "New release notes",
-    "SinglePage": false,
+    "SinglePage": true,
     "Projects": [
         {
             "Project": "Infrastructure",
