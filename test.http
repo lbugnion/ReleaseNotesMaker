@@ -1,6 +1,6 @@
 ### Create release notes (tests auto commit)
 POST {{function-url}}/release-notes/milestones/all
-x-releasenotesmaker-token: {{release-notes-makes-githubtoken}}
+x-releasenotesmaker-token: {{release-notes-maker-githubtoken}}
 x-functions-key: {{UpdateReleaseNotesKey}}
 
 {
@@ -9,34 +9,12 @@ x-functions-key: {{UpdateReleaseNotesKey}}
     "BranchName": "master",
     "CommitMessage": "New release notes for V1",
     "SinglePage": false,
-    "Projects": [
-        {
-            "Project": "Client project",
-            "ProjectId": 2,
-            "Header": [
-                "This is header line 1",
-                "And this is line 2",
-                "And this [is a link](http://rts.ch)"
-            ]
-        },
-        {
-            "Project": "Test project API",
-            "ProjectId": 1
-        },
-        {
-            "Project": "Tests Auto Commit",
-            "IsMainPage": true,
-            "Header": [
-                "This is header line 1 for the main page",
-                "Here [is a link](http://galasoft.ch)"
-            ]
-        }
-    ]
+    "Projects": "Tests Auto Commit, 1-Test project API, 2-Client project"
 }
 
 ### Create release notes (releasenotesmaker)
 POST {{function-url}}/release-notes/milestones/all
-x-releasenotesmaker-token: {{release-notes-makes-githubtoken}}
+x-releasenotesmaker-token: {{release-notes-maker-githubtoken}}
 x-functions-key: {{UpdateReleaseNotesKey}}
 
 {
@@ -60,3 +38,70 @@ x-functions-key: {{UpdateReleaseNotesKey}}
         }
     ]
 }
+
+### Create release notes (timekeeper)
+POST {{function-url}}/release-notes/milestones/all
+x-releasenotesmaker-token: {{release-notes-maker-githubtoken}}
+x-functions-key: {{UpdateReleaseNotesKey}}
+
+{
+    "AccountName": "lbugnion",
+    "RepoName": "timekeeper",
+    "BranchName": "main",
+    "CommitMessage": "Updated release notes",
+    "SinglePage": false,
+    "Projects": [
+        {
+            "Project": "Client",
+            "ProjectId": 1
+        },
+        {
+            "Project": "API",
+            "ProjectId": 2
+        },
+        {
+            "Project": "Infrastructure",
+            "ProjectId": 4
+        },
+        {
+            "Project": "Documentation",
+            "ProjectId": 3
+        },
+        {
+            "Project": "TimeKeeper",
+            "IsMainPage": true
+        }
+    ]
+}
+
+### Create release notes (ms-glossary-app)
+POST {{function-url}}/release-notes/milestones/all
+x-releasenotesmaker-token: {{release-notes-maker-githubtoken}}
+x-functions-key: {{UpdateReleaseNotesKey}}
+
+{
+    "AccountName": "lbugnion",
+    "RepoName": "ms-glossary-app",
+    "BranchName": "main",
+    "CommitMessage": "Updated release notes",
+    "SinglePage": false,
+    "Projects": [
+        {
+            "Project": "Infrastructure",
+            "ProjectId": 4
+        },
+        {
+            "Project": "Backend Functions",
+            "ProjectId": 2
+        },
+        {
+            "Project": "Synopsis Client",
+            "ProjectId": 1
+        },
+        {
+            "Project": "Microsoft Glossary App",
+            "IsMainPage": true
+        }
+    ]
+}
+
