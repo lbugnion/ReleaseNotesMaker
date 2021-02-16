@@ -7,10 +7,12 @@ on:
     branches: [ Staging, Test ]
     paths:
     - 'src/ReleaseNotesMaker/**'
+    - 'dependencies/**'
   pull_request:
     branches: [ Staging ]
     paths:
     - 'src/ReleaseNotesMaker/**'
+    - 'dependencies/**'
 
   workflow_dispatch:
 
