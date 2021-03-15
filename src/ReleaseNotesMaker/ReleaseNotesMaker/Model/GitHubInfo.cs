@@ -1,4 +1,5 @@
 ﻿using GitHubHelper;
+using GitHubHelper.Model;
 using System.Collections.Generic;
 
 namespace ReleaseNotesMaker.Model
