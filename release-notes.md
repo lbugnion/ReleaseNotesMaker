@@ -24,13 +24,15 @@
 
 [enhancement # 2](https://github.com/lbugnion/ReleaseNotesMaker/issues/2) *(open)*: Cleanup code
 
-[bug # 3](https://github.com/lbugnion/ReleaseNotesMaker/issues/3) *(open)*: Generating release notes for this project creates an empty document
-
 [bug # 6](https://github.com/lbugnion/ReleaseNotesMaker/issues/6) *(open)*: Some issues have closed date set to DateTime.MinValue
 
-[question # 8](https://github.com/lbugnion/ReleaseNotesMaker/issues/8) *(open)*: Think about a versioning concept for Functions
-
 ### Closed issues
+
+#### Fixed issues in [V1.2](https://github.com/lbugnion/ReleaseNotesMaker/milestone/5) *(open)*
+
+[bug # 3](https://github.com/lbugnion/ReleaseNotesMaker/issues/3) *(closed on 01 Jan 0001)*: Generating release notes for this project creates an empty document
+
+[question # 8](https://github.com/lbugnion/ReleaseNotesMaker/issues/8) *(closed on 01 Jan 0001)*: Think about a versioning concept for Functions
 
 #### Fixed issues in [V1.1](https://github.com/lbugnion/ReleaseNotesMaker/milestone/4) *(open)*
 
