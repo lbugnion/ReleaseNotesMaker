@@ -10,9 +10,9 @@
 
 ### Closed issues
 
-#### Fixed issues in [V0 bugfix](https://github.com/lbugnion/ReleaseNotesMaker/milestone/3) *(open)*
+#### Fixed issues in [V0 bugfix](https://github.com/lbugnion/ReleaseNotesMaker/milestone/3) *(closed on 15 Mar 2021)*
 
-[bug # 10](https://github.com/lbugnion/ReleaseNotesMaker/issues/10) *(closed on 01 Jan 0001)*: Upgrading to a newer version of a dependency DLL doesn't trigger the deployment
+[bug # 10](https://github.com/lbugnion/ReleaseNotesMaker/issues/10) *(closed on 15 Mar 2021)*: Upgrading to a newer version of a dependency DLL doesn't trigger the deployment
 
 
 
@@ -20,21 +20,25 @@
 
 ### Known issues (still open)
 
-#### Planned for [V1.0](https://github.com/lbugnion/ReleaseNotesMaker/milestone/1) *(open)*
-
-[question # 8](https://github.com/lbugnion/ReleaseNotesMaker/issues/8) *(open)*: Think about a versioning concept for Functions
-
-[bug # 6](https://github.com/lbugnion/ReleaseNotesMaker/issues/6) *(open)*: Some issues have closed date set to DateTime.MinValue
-
-[bug # 3](https://github.com/lbugnion/ReleaseNotesMaker/issues/3) *(open)*: Generating release notes for this project creates an empty document
+#### Planned for [V1.2](https://github.com/lbugnion/ReleaseNotesMaker/milestone/5) *(open)*
 
 [enhancement # 2](https://github.com/lbugnion/ReleaseNotesMaker/issues/2) *(open)*: Cleanup code
 
+[bug # 3](https://github.com/lbugnion/ReleaseNotesMaker/issues/3) *(open)*: Generating release notes for this project creates an empty document
+
+[bug # 6](https://github.com/lbugnion/ReleaseNotesMaker/issues/6) *(open)*: Some issues have closed date set to DateTime.MinValue
+
+[question # 8](https://github.com/lbugnion/ReleaseNotesMaker/issues/8) *(open)*: Think about a versioning concept for Functions
+
 ### Closed issues
 
-#### Fixed issues in [V0 bugfix](https://github.com/lbugnion/ReleaseNotesMaker/milestone/3) *(open)*
+#### Fixed issues in [V1.1](https://github.com/lbugnion/ReleaseNotesMaker/milestone/4) *(open)*
 
-[bug # 7](https://github.com/lbugnion/ReleaseNotesMaker/issues/7) *(closed on 01 Jan 0001)*: When an issue doesn't have a milestone set, UpdateReleaseNotes crashes the app
+[enhancement # 11](https://github.com/lbugnion/ReleaseNotesMaker/issues/11) *(closed on 01 Jan 0001)*: Upgrade to GitHubHelper V1.1
+
+#### Fixed issues in [V0 bugfix](https://github.com/lbugnion/ReleaseNotesMaker/milestone/3) *(closed on 15 Mar 2021)*
+
+[bug # 7](https://github.com/lbugnion/ReleaseNotesMaker/issues/7) *(closed on 15 Mar 2021)*: When an issue doesn't have a milestone set, UpdateReleaseNotes crashes the app
 
 
 
