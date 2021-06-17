@@ -20,7 +20,7 @@
 
 ### Known issues (still open)
 
-#### Planned for [V1.2](https://github.com/lbugnion/ReleaseNotesMaker/milestone/5) *(open)*
+#### Planned for [V1.3](https://github.com/lbugnion/ReleaseNotesMaker/milestone/5) *(open)*
 
 [enhancement # 2](https://github.com/lbugnion/ReleaseNotesMaker/issues/2) *(open)*: Cleanup code
 
@@ -28,15 +28,15 @@
 
 ### Closed issues
 
-#### Fixed issues in [V1.2](https://github.com/lbugnion/ReleaseNotesMaker/milestone/5) *(open)*
+#### Fixed issues in [V1.3](https://github.com/lbugnion/ReleaseNotesMaker/milestone/5) *(open)*
 
 [bug # 3](https://github.com/lbugnion/ReleaseNotesMaker/issues/3) *(closed on 01 Jan 0001)*: Generating release notes for this project creates an empty document
 
 [question # 8](https://github.com/lbugnion/ReleaseNotesMaker/issues/8) *(closed on 01 Jan 0001)*: Think about a versioning concept for Functions
 
-#### Fixed issues in [V1.1](https://github.com/lbugnion/ReleaseNotesMaker/milestone/4) *(open)*
+#### Fixed issues in [V1.1](https://github.com/lbugnion/ReleaseNotesMaker/milestone/4) *(closed on 17 Jun 2021)*
 
-[enhancement # 11](https://github.com/lbugnion/ReleaseNotesMaker/issues/11) *(closed on 01 Jan 0001)*: Upgrade to GitHubHelper V1.1
+[enhancement # 11](https://github.com/lbugnion/ReleaseNotesMaker/issues/11) *(closed on 17 Jun 2021)*: Upgrade to GitHubHelper V1.1
 
 #### Fixed issues in [V0 bugfix](https://github.com/lbugnion/ReleaseNotesMaker/milestone/3) *(closed on 15 Mar 2021)*
 
