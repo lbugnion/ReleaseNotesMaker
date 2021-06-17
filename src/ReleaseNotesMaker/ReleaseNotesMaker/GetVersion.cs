@@ -20,7 +20,7 @@ namespace ReleaseNotesMaker
             HttpRequest req,
             ILogger log)
         {
-            return new OkObjectResult("1.1");
+            return new OkObjectResult("1.2");
         }
     }
 }
