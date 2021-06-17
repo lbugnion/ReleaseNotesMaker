@@ -12,6 +12,33 @@ x-functions-key: {{UpdateReleaseNotesKey}}
     "Projects": "Tests Auto Commit, 1-Test project API, 2-Client project"
 }
 
+### Create release notes (GitHubHelper)
+POST {{function-url}}/release-notes/milestones/all
+x-releasenotesmaker-token: {{release-notes-maker-githubtoken}}
+x-functions-key: {{UpdateReleaseNotesKey}}
+
+{
+    "AccountName": "lbugnion",
+    "RepoName": "GitHubHelper",
+    "BranchName": "main",
+    "CommitMessage": "New release notes",
+    "SinglePage": true,
+    "Projects": [
+        {
+            "Project": "GitHubHelper",
+            "ProjectId": 2
+        },
+        {
+            "Project": "Infrastructure",
+            "ProjectId": 1
+        },
+        {
+            "Project": "GitHubHelper",
+            "IsMainPage": true
+        }
+    ]
+}
+
 ### Create release notes (releasenotesmaker)
 POST {{function-url}}/release-notes/milestones/all
 x-releasenotesmaker-token: {{release-notes-maker-githubtoken}}
